@@ -1,0 +1,9 @@
+<div class = "HeaderContainer">
+    <a href="/" class = "HeaderHrew">Home</a>
+    <a href="/" class = "HeaderHrew">SomeButton</a>
+    <a href="/" class = "HeaderHrew">SomeButton</a>
+    <a href="/" class = "HeaderHrew">SomeButton</a>
+    <p *ngIf = "this.checkUser()" (click)="this.logout()" class = "RightHrew">Logout</p>
+    <a *ngIf = "!this.checkUser()" routerLink="/register" routerLinkActive="active" class = "RightHrew">Register</a>
+    <a *ngIf = "!this.checkUser()" routerLink="/login" routerLinkActive="active" class = "RightHrew">LogIn</a>
+</div>

@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "projects": {
+    "Barley-break": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/Barley-break",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.json",
+            "aot": true
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "Barley-break:build"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "Barley-break",
+  "cli": {
+    "analytics": "b53c854e-16de-4f3d-8b82-411506adbeb9"
+  }
+}

@@ -1,0 +1,31 @@
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-md-5">
+    <h1 class="my-4 font-weight-bold .display-4">Register</h1>
+    <form #myForm="ngForm" novalidate (ngSubmit)="onSubmit(myForm)">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name" [(ngModel)]="model.name" #username="ngModel" required />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="email" [(ngModel)]="model.email" #email="ngModel" required />
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+        </div>
+        <div class="form-group">
+            <label>Confirm password</label>
+            <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel" required/>
+        </div>
+        <div class="form-group">
+            <input type="submit" [disabled]="myForm.invalid" class="btn btn-default" value="Отправить" />
+        </div>
+    </form>
+</div>
+<div class="col-md-7 my-auto">
+    <img src="https://mlcmoqxznn0t.i.optimole.com/--UyYw-9uczbdri/w:1024/h:702/q:auto/https://eracles.co/wp-content/uploads/2019/07/undraw_maker_launch_crhe.png" />
+</div>
+</div>
+</div>

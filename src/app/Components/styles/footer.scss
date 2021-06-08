@@ -1,0 +1,36 @@
+.FooterContainer {
+    background-color: #2b3137;
+    padding: 32px 0 32px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.AboutContainer{
+    padding: 0px 5% 32px 2%;
+    display: flex;
+    flex-direction: column;
+}
+.RecentContainer
+{
+    padding: 0px 5% 32px 5%;
+    display: flex;
+    flex-direction: column;
+}
+.RecomendationContainer{
+    padding: 0px 5% 32px 5%;
+    display: flex;
+    flex-direction: column;
+}
+.BlockHeader{
+    color: #c0c0c0;
+}
+.BlockParagraph{
+    max-width: 300px;
+    font-size: 1em;
+    color: #c0c0c0;
+}
+.BlockHrew
+{
+    text-decoration: none;
+    color: #c0c0c0;
+}

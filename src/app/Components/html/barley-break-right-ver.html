@@ -1,0 +1,84 @@
+<div class = "GlobalInfoContainer">
+    <div cdkDropListGroup class ="BarleyBreakContainer" >
+        <p class = "HeroHeadingParagraph">{{this.barleyBreakRightVerService.getUserNameOne()}}<p>
+        <p>{{checkAll()}}</p>
+            <div class="icons_wrapper" *ngIf="!wincheckPl1()">
+                <ng-container *ngFor="let button of this.barleyBreakRightVerService.getButtonsPlayerOne()">
+                    <div class="drag_container" 
+                        igxDrag
+                        igxDrop
+                        #dragRef
+                        id="{{button.currentPosition}}" 
+                        (dropped)="onIconDropped($event)" 
+                        (dragStart)="dragStartHandler(button.currentPosition, button.name)"
+                        (ghostCreate)="ghostCreateHandler(dragRef)"
+                        (dragEnd)="dragEndHandler(dragRef)"
+                        (enter)="onEnterHandler($event, 1, this.barleyBreakRightVerService.getUserNameOne())"
+                        [ghostClass]="'drag_ghost_class'">
+                        <span class="icon_container" draggable="false" onmousedown="if (event.preventDefault) event.preventDefault()">
+                            <div class = "{{{true: 'num-div-win', false: 'num-div'}[button.name == ' ']}}">
+                                {{button.name == ' ' ? this.barleyBreakRightVerService.getWinButtonsPlayerOne()[button.currentPosition - 1].name : button.name}}
+                            </div>
+                        </span>
+                    </div>
+                </ng-container> 
+            </div>
+            <p class = "WinParagraph" *ngIf="wincheckPl1()">
+                Congratulation
+            </p>
+            <p class = "WinParagraph" *ngIf="wincheckPl1()">
+                You did it!
+            </p>
+    </div>
+    <div class="InfoBlockContentContainer">
+    <div>
+        <button class = "start-button" (click)="this.checkPlayer()" *ngIf="this.checkReady">Check Players</button>
+    </div>
+    <div>
+        <button class = "start-button" (click)="this.saveGame()" *ngIf="!this.checkReady">Save Game</button>
+    </div>
+    <br />
+    <br />
+    <div>
+        <button class = "start-button" (click)="this.ready()" *ngIf="this.checkReady">I am ready</button>
+    </div>
+    <div>
+        <button class = "start-button" (click)="this.loadGame()" *ngIf="!this.checkReady">Load Game</button>
+    </div>
+    <br />
+    <br />
+    <div>
+        <button class = "start-button" (click)="randCoord()">Shafle</button>
+    </div>
+    </div>
+    <div class = "BarleyBreakContainer">
+        <p class = "HeroHeadingParagraph">{{this.barleyBreakRightVerService.getUserNameTwo()}}<p></p>
+            <div class="icons_wrapper" *ngIf="!wincheckPl2()">
+                <ng-container *ngFor="let button of this.barleyBreakRightVerService.getButtonsPlayerTwo()">
+                    <div class="drag_container" 
+                        igxDrag
+                        igxDrop
+                        #dragRef
+                        id="{{button.currentPosition}}" 
+                        (dropped)="onIconDropped($event)" 
+                        (dragStart)="dragStartHandler(button.currentPosition, button.name)"
+                        (ghostCreate)="ghostCreateHandler(dragRef)"
+                        (dragEnd)="dragEndHandler(dragRef)"
+                        (enter)="onEnterHandler($event, 2, this.barleyBreakRightVerService.getUserNameTwo())"
+                        [ghostClass]="'drag_ghost_class'">
+                        <span class="icon_container" draggable="false" onmousedown="if (event.preventDefault) event.preventDefault()">
+                            <div class = "{{{true: 'num-div-win', false: 'num-div'}[button.name == ' ']}}">
+                                {{button.name == ' ' ? this.barleyBreakRightVerService.getWinButtonsPlayerTwo()[button.currentPosition - 1].name : button.name}}
+                            </div>
+                        </span>
+                    </div>
+                </ng-container> 
+            </div>
+            <p class = "WinParagraph" *ngIf="wincheckPl2()">
+                Congratulation
+            </p>
+            <p class = "WinParagraph" *ngIf="wincheckPl2()">
+                You did it!
+            </p>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class = "GlobalInfoContainer">
+    <div class = "InfoBlockContentContainer">
+        <h1>How to play classic barley-break?</h1>
+        <p class = "InfoBlockParagraph">The popular puzzle "barley-break" was invented at the end of the 19th century. 
+        The classic playing field is a 4x4 matrix of cells, on which the numbers from 1 to 15 are located in order 
+        (from left to right and from top to bottom). The last cell is empty. The cells are shuffled in a certain way, 
+        and the player's task is to restore their original correct position. This can be done only by moving to an 
+        empty cell another cell adjacent to it (located to the left, right, above or below the empty one).</p>
+    </div>
+    <div class ="BarleyBreakContainer">
+        <table *ngIf="!checkWin()">
+            <tr>
+            <td><button (click)="swapNumber(1, 1)">{{findNumberName(1, 1)}}</button></td>
+            <td><button (click)="swapNumber(1, 2)">{{findNumberName(1, 2)}}</button></td>
+            <td><button (click)="swapNumber(1, 3)">{{findNumberName(1, 3)}}</button></td>
+            <td><button (click)="swapNumber(1, 4)">{{findNumberName(1, 4)}}</button></td>
+            </tr>
+            <tr>
+            <td><button (click)="swapNumber(2, 1)">{{findNumberName(2, 1)}}</button></td>
+            <td><button (click)="swapNumber(2, 2)">{{findNumberName(2, 2)}}</button></td>
+            <td><button (click)="swapNumber(2, 3)">{{findNumberName(2, 3)}}</button></td>
+            <td><button (click)="swapNumber(2, 4)">{{findNumberName(2, 4)}}</button></td>
+            </tr>
+            <tr>
+            <td><button (click)="swapNumber(3, 1)">{{findNumberName(3, 1)}}</button></td>
+            <td><button (click)="swapNumber(3, 2)">{{findNumberName(3, 2)}}</button></td>
+            <td><button (click)="swapNumber(3, 3)">{{findNumberName(3, 3)}}</button></td>
+            <td><button (click)="swapNumber(3, 4)">{{findNumberName(3, 4)}}</button></td>
+            </tr>
+            <tr>
+            <td><button (click)="swapNumber(4, 1)">{{findNumberName(4, 1)}}</button></td>
+            <td><button (click)="swapNumber(4, 2)">{{findNumberName(4, 2)}}</button></td>
+            <td><button (click)="swapNumber(4, 3)">{{findNumberName(4, 3)}}</button></td>
+            <td><button (click)="swapNumber(4, 4)">{{findNumberName(4, 4)}}</button></td>
+            </tr>
+        </table>
+        <p class = "ParagraphStart" *ngIf="checkWin()">
+            Press button
+        </p>
+        <p class = "ParagraphStart" *ngIf="checkWin()">
+            to start
+        </p>
+        <button class = "start-button" (click)="randCoord()">Start</button>
+        <p *ngIf="!checkWin()">Количество шагов: {{GetNumSteps()}}</p>
+    </div>
+</div>
