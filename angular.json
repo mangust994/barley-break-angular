@@ -21,7 +21,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Barley-break:build"
+            "browserTarget": "barley-break:build"
           }
         }
       }
