@@ -36,5 +36,5 @@ jobs:
         app-name: barley-break
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_179AEC105F244B7AAA3EE8110FF9575F }}
-        package: .
+        package: ./dist/barley-break
 
