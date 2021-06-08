@@ -1,7 +1,7 @@
 {
   "version": 1,
   "projects": {
-    "Barley-break": {
+    "barley-break": {
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
