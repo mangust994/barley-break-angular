@@ -26,7 +26,7 @@
       }
     }
   },
-  "defaultProject": "Barley-break",
+  "defaultProject": "barley-break",
   "cli": {
     "analytics": "b53c854e-16de-4f3d-8b82-411506adbeb9"
   }
