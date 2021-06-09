@@ -24,7 +24,8 @@ jobs:
     - name: npm install, build, and test
       run: |
         npm install
-        npm run build --if-present
+        npm run build --prod
+      working-directory: .
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
@@ -52,4 +53,4 @@ jobs:
         app-name: 'barley-break'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_cc59285263a54342937f3f33dd240ef4 }}
-        package: .
+        package: ./dist
