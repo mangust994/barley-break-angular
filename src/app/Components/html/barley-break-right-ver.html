@@ -40,7 +40,7 @@
     <br />
     <br />
     <div>
-        <button class = "start-button" (click)="this.ready()" *ngIf="this.checkReady">I am ready</button>
+        <button class = "start-button" (click)="this.ready()" *ngIf="this.checkReady" [disabled] = "this.checkPlayers()">I am ready</button>
     </div>
     <div>
         <button class = "start-button" (click)="this.loadGame()" *ngIf="!this.checkReady">Load Game</button>

@@ -42,6 +42,12 @@
         font-size: 1rem;
         cursor: pointer;
         }
+        .start-button:disabled,
+        .start-button[disabled]{
+        border: 1px solid #531a1a;
+        background-color: #641414;
+        color: #666666;
+    }
     .GlobalInfoContainer {
         display: flex;
         height: 600px;

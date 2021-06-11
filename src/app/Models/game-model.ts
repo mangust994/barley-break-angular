@@ -7,4 +7,6 @@ export class GameModel {
     users: UserModel[];
     status: boolean;
     route: string;
+    conectionIdUserOne: string;
+    conectionIdUserTwo: string;
 }

@@ -24,6 +24,5 @@ export class LoginForm implements OnInit {
 
     login() {
         this.authService.login(this.model.username, this.model.password);
-        this.router.navigate(['/']);
     }
 }

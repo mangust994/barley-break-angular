@@ -76,7 +76,19 @@ export class BarleyBreakRightVerService{
         this.barleyBreakRightVerDataService.sendButtonPosition();
     }
 
+    checkThisGameFirstConnectionId() : boolean{
+        var game = this.barleyBreakRightVerDataService.currentGame.conectionIdUserOne;
+        if (game != null || game != undefined)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
     
+
     checkPlayer(){
         this.barleyBreakRightVerDataService.checkPlayer();
     }
@@ -134,7 +146,12 @@ export class BarleyBreakRightVerService{
     getUserNameTwo() : any{
         return this.barleyBreakRightVerDataService.userName2;
     }
-
+    getUserEmailOne() : any{
+        return this.barleyBreakRightVerDataService.userEmail1;
+    }
+    getUserEmailTwo() : any{
+        return this.barleyBreakRightVerDataService.userEmail2;
+    }
     getButtonsPlayerOne() : any[]{
         return this.barleyBreakRightVerDataService.buttonsPlayerOne;
     }

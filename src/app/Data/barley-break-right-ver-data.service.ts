@@ -20,6 +20,8 @@ export class BarleyBreakRightVerDataService  {
     connectionId: string;
     userName1: string;
     userName2: string;
+    userEmail1: string;
+    userEmail2: string;
     buttonsPlayerOne: ButtonNumber[] = 
     [
         {id: 1, currentPosition: 1, name: '1'},
@@ -151,6 +153,8 @@ export class BarleyBreakRightVerDataService  {
         this.connection.on('thisGame', (game : any) => {this.currentGame = game, 
             this.userName1 = game.users[0].userName, 
             this.userName2 = game.users[1].userName,
+            this.userEmail1 = game.users[0].email,
+            this.userEmail2 = game.users[1].email,
             this.allButtons = game.buttons;
         }
         )
@@ -160,26 +164,34 @@ export class BarleyBreakRightVerDataService  {
     checkButtons(): void {
         this.connection.on("takeNewPosition", (buttonsPlayerOne: ButtonNumber[], buttonsPlayerTwo: ButtonNumber[], 
             winButtonsPlayerOne: ButtonNumber[], winButtonsPlayerTwo: ButtonNumber[]) => {
-        for(let i = 0; i < buttonsPlayerOne.length; i++)
-        {
-            this.buttonsPlayerOne[i].currentPosition = buttonsPlayerOne[i].currentPosition;
-            this.buttonsPlayerOne[i].name = buttonsPlayerOne[i].name;
-        }
-        for(let i = 0; i < buttonsPlayerOne.length; i++)
-        {
-            this.buttonsPlayerTwo[i].currentPosition = buttonsPlayerTwo[i].currentPosition;
-            this.buttonsPlayerTwo[i].name = buttonsPlayerTwo[i].name;
-        }
-        for(let i = 0; i < winButtonsPlayerOne.length; i++)
-        {
-            this.winButtonsPlayerOne[i].currentPosition = winButtonsPlayerOne[i].currentPosition;
-            this.winButtonsPlayerOne[i].name = winButtonsPlayerOne[i].name;
-        }
-        for(let i = 0; i < winButtonsPlayerTwo.length; i++)
-        {
-            this.winButtonsPlayerTwo[i].currentPosition = winButtonsPlayerTwo[i].currentPosition;
-            this.winButtonsPlayerTwo[i].name = winButtonsPlayerTwo[i].name;
-        }
+            let userName = JSON.parse(localStorage.getItem("currentUser")).username;
+            if(userName == this.userEmail1)
+            {
+                for(let i = 0; i < buttonsPlayerTwo.length; i++)
+                {
+                    this.buttonsPlayerTwo[i].currentPosition = buttonsPlayerTwo[i].currentPosition;
+                    this.buttonsPlayerTwo[i].name = buttonsPlayerTwo[i].name;
+                }
+            }
+            else if(userName == this.userEmail2)
+            {
+                for(let i = 0; i < buttonsPlayerOne.length; i++)
+                {
+                    this.buttonsPlayerOne[i].currentPosition = buttonsPlayerOne[i].currentPosition;
+                    this.buttonsPlayerOne[i].name = buttonsPlayerOne[i].name;
+                }
+            }
+            
+            for(let i = 0; i < winButtonsPlayerOne.length; i++)
+            {
+                this.winButtonsPlayerOne[i].currentPosition = winButtonsPlayerOne[i].currentPosition;
+                this.winButtonsPlayerOne[i].name = winButtonsPlayerOne[i].name;
+            }
+            for(let i = 0; i < winButtonsPlayerTwo.length; i++)
+            {
+                this.winButtonsPlayerTwo[i].currentPosition = winButtonsPlayerTwo[i].currentPosition;
+                this.winButtonsPlayerTwo[i].name = winButtonsPlayerTwo[i].name;
+            }
     })
     }
 
@@ -221,6 +233,13 @@ export class BarleyBreakRightVerDataService  {
 
     sendButtonPosition(): void {
         this.connection.send("changeButtonPosition", this.buttonsPlayerOne, this.buttonsPlayerTwo, this.winButtonsPlayerOne, this.winButtonsPlayerTwo, this.currentGame);
+    }
+
+    clear(){
+        this.currentGame = undefined;
+        this.allButtons = undefined;
+        this.userName1 = undefined;
+        this.userName2 = undefined;
     }
 
     sendCurrentGame(): void {

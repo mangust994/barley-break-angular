@@ -12,6 +12,8 @@ import {BarleyBreakRightVerService} from "../Services/barley-break-right-ver.ser
         providers: [BarleyBreakRightVerService]
 })
 export class BarleyBreakRVComponent implements OnInit { 
+    public checkReadyPlayerOne: boolean = false;
+    public checkReadyPlayerTwo: boolean = false;
     public checkReady: boolean = true;
     public dragIconId: number;
     public dropTileId: number;
@@ -76,6 +78,20 @@ export class BarleyBreakRVComponent implements OnInit {
         }
         
     }
+
+    public checkPlayers() : boolean
+    {
+        if(this.barleyBreakRightVerService.getUserNameTwo() != null || this.barleyBreakRightVerService.getUserNameTwo() != undefined)
+        {
+            if(this.barleyBreakRightVerService.getUserEmailTwo() == JSON.parse(localStorage.getItem("currentUser")).username)
+            {
+                return this.barleyBreakRightVerService.checkThisGameFirstConnectionId();
+            }
+            return false;
+        }
+        return true;
+    }
+
 
     public dragStartHandler(id: string, name: string): void {
         this.dragIconId = parseInt(id, 10)

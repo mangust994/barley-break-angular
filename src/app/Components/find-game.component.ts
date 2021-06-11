@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import {GameDataService} from "../Data/game-data.service";
 import { GameModel } from '../Models/game-model';
 import {FindGameService} from "../Services/find-game.service";
-
+import {BarleyBreakRightVerDataService} from "../Data/barley-break-right-ver-data.service";
 
 
 @Component({
@@ -13,10 +13,11 @@ import {FindGameService} from "../Services/find-game.service";
     providers: [FindGameService, GameDataService]
 })
 export class FindGameComponent { 
-    constructor(private findgameService: FindGameService, private router: Router) {{
+    constructor(private findgameService: FindGameService, private barleyBreakRightVerDataService: BarleyBreakRightVerDataService) {{
 
     }}
     findPlayer() {
+        this.barleyBreakRightVerDataService.clear();
         this.findgameService.findGame().then((data : any) => {
             if(data == undefined || data.length == 0 || data == null)
             {
